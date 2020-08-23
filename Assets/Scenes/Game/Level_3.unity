@@ -25805,7 +25805,7 @@ GameObject:
   - component: {fileID: 761123749}
   m_Layer: 5
   m_Name: Slider
-  m_TagString: Untagged
+  m_TagString: Slider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33228,7 +33228,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1827039096}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.313552, y: 1.4157181, z: -10}
+  m_LocalPosition: {x: 10.322521, y: 1.4157181, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1458445653}
@@ -67392,38 +67392,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 55879131, guid: d70bf3cbe28db574a905797e93098ed1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.41
-      objectReference: {fileID: 0}
-    - target: {fileID: 1607370660, guid: d70bf3cbe28db574a905797e93098ed1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.252
-      objectReference: {fileID: 0}
-    - target: {fileID: 603571067645069203, guid: d70bf3cbe28db574a905797e93098ed1,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: -0.5538471
-      objectReference: {fileID: 0}
-    - target: {fileID: 603571067645069203, guid: d70bf3cbe28db574a905797e93098ed1,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.111116976
-      objectReference: {fileID: 0}
-    - target: {fileID: 1585428936704548024, guid: d70bf3cbe28db574a905797e93098ed1,
-        type: 3}
-      propertyPath: m_SortingLayerID
-      value: -62317113
-      objectReference: {fileID: 0}
-    - target: {fileID: 1585428936704548024, guid: d70bf3cbe28db574a905797e93098ed1,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1585428936704548027, guid: d70bf3cbe28db574a905797e93098ed1,
-        type: 3}
-      propertyPath: jumpForce
-      value: 12
+    - target: {fileID: 1291490445, guid: d70bf3cbe28db574a905797e93098ed1, type: 3}
+      propertyPath: InheritVelocityModule.m_Mode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1585428936704548028, guid: d70bf3cbe28db574a905797e93098ed1,
         type: 3}
@@ -67484,11 +67455,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5486811883972987706, guid: d70bf3cbe28db574a905797e93098ed1,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.057
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d70bf3cbe28db574a905797e93098ed1, type: 3}

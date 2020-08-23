@@ -3349,7 +3349,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4961243305158150, guid: 71cce0e18cda5cf41922fd12f108ed51, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 28.25
+      value: 28.998823
       objectReference: {fileID: 0}
     - target: {fileID: 4961243305158150, guid: 71cce0e18cda5cf41922fd12f108ed51, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3409,7 +3409,7 @@ PrefabInstance:
     - target: {fileID: 3595200773210376518, guid: 19b85a0f2cd6d1248b109cb4ef82a06f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 28.221176
+      value: 28.97
       objectReference: {fileID: 0}
     - target: {fileID: 3595200773210376518, guid: 19b85a0f2cd6d1248b109cb4ef82a06f,
         type: 3}
@@ -10638,7 +10638,7 @@ PrefabInstance:
     - target: {fileID: 7198340973249643828, guid: 6676647227bdd5e468f309c58901a583,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 29.61
+      value: 30.358824
       objectReference: {fileID: 0}
     - target: {fileID: 7198340973249643828, guid: 6676647227bdd5e468f309c58901a583,
         type: 3}
@@ -11799,7 +11799,7 @@ RectTransform:
   m_Children:
   - {fileID: 1241520071}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -12324,7 +12324,7 @@ PrefabInstance:
     - target: {fileID: 7198340973249643828, guid: 6676647227bdd5e468f309c58901a583,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 26.91
+      value: 27.658823
       objectReference: {fileID: 0}
     - target: {fileID: 7198340973249643828, guid: 6676647227bdd5e468f309c58901a583,
         type: 3}
@@ -20259,7 +20259,7 @@ PrefabInstance:
     - target: {fileID: 9111355244818734272, guid: c2bca27149520d64fb8e216a834d1314,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 34.57554
+      value: 35.324364
       objectReference: {fileID: 0}
     - target: {fileID: 9111355244818734272, guid: c2bca27149520d64fb8e216a834d1314,
         type: 3}
@@ -22171,7 +22171,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1827039096}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.98064, y: -9.410994, z: -10}
+  m_LocalPosition: {x: 15.989609, y: -9.410994, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1458445653}

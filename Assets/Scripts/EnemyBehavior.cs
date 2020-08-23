@@ -95,10 +95,10 @@ public class EnemyBehavior : MonoBehaviour
     private void Death()
     {
         deathParticleEffect.SetActive(true);
-        gameObject.GetComponent<SpriteRenderer>().enabled = false;
-        gameObject.GetComponent<BoxCollider2D>().enabled = false;
-        gameObject.GetComponent<CircleCollider2D>().enabled = false;
-        gameObject.GetComponent<Rigidbody2D>().gravityScale = 0f;
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<BoxCollider2D>().enabled = false;
+        GetComponent<CircleCollider2D>().enabled = false;
+        GetComponent<Rigidbody2D>().gravityScale = 0f;
 
         Destroy(gameObject, 0.3f);
     }

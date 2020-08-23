@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4713717484369028}
   - component: {fileID: 212679375708851594}
   m_Layer: 0
-  m_Name: Medieval_props_free_1
+  m_Name: EntryDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69,7 +69,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1106144513
   m_SortingLayer: 1
-  m_SortingOrder: 8
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300002, guid: ae3918a914038694d852d0bb81f62473, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

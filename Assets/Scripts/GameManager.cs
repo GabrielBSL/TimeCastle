@@ -14,7 +14,8 @@ public class GameManager : MonoBehaviour
 
     private AudioManager audio;
 
-    private string songName;
+    [HideInInspector]
+    public string songName;
 
     private void Start()
     {
@@ -82,7 +83,6 @@ public class GameManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Level_boss")
             audio.Stop(songName);
 
-        audio.reverseBGM = false;
         audio.Pitch(songName, 1f);
         SceneManager.LoadScene(currentLevelIndex);
     }
@@ -94,10 +94,14 @@ public class GameManager : MonoBehaviour
             SceneManager.GetActiveScene().name == "Intermission_2" ||
             SceneManager.GetActiveScene().name == "Intermission_3" ||
             SceneManager.GetActiveScene().name == "Level_boss")
+        {
             audio.Stop(songName);
+            audio.reverseBGM = false;
+        }
 
-        audio.reverseBGM = false;
-        audio.Pitch(songName, 1f);
+        else
+            audio.Pitch(songName, 1f);
+
         SceneManager.LoadScene(currentLevelIndex + 1);
     }
 

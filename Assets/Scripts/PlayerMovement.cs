@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerMovement : MonoBehaviour
@@ -23,12 +24,16 @@ public class PlayerMovement : MonoBehaviour
 
     public float slopeRayLenght;
 
+    public GameObject deathEffect;
+
     private bool wallColliding;
     private bool right;
+    private bool isAlive;
 
     // Start is called before the first frame update
     void Start()
     {
+        isAlive = true;
         jumping = true;
         grounded = false;
         rig = GetComponent<Rigidbody2D>();
@@ -38,7 +43,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Movement();
+        if(isAlive)
+            Movement();
     }
 
     private void Movement()
@@ -96,8 +102,28 @@ public class PlayerMovement : MonoBehaviour
 
     public void setDeath()
     {
+        isAlive = false;
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<BoxCollider2D>().enabled = false;
+        GetComponent<CircleCollider2D>().enabled = false;
+        rig.gravityScale = 0f;
+        rig.velocity = Vector3.zero;
+
+        deathEffect.SetActive(true);
+        FindObjectOfType<AudioManager>().PlaySound("PlayerHit");
+
+        FindObjectOfType<AudioManager>().Pause(FindObjectOfType<GameManager>().songName);
+
+        FindObjectOfType<Slider>().enabled = false;
+
+        Invoke("RestartLevel", 1.5f);
+    }
+
+    public void RestartLevel()
+    {
+        FindObjectOfType<AudioManager>().Unpause(FindObjectOfType<GameManager>().songName);
+
         GameObject.Find("GameManager").GetComponent<GameManager>().RestartLevel();
-        //Destroy(gameObject);
     }
 
     public void isGrounded()

@@ -47,16 +47,6 @@ public class AudioManager : MonoBehaviour
             s.source.Play();
     }
 
-    public void Volume(string name, float volume)
-    {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-
-        if (s == null)
-            return;
-
-        s.source.volume = volume;
-    }
-
     public void Stop(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
@@ -71,7 +61,29 @@ public class AudioManager : MonoBehaviour
 
             r.source.Stop();
         }
+    }
 
+    public void Pause(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+
+        if (s.source.isPlaying)
+            s.source.Pause();
+
+        else
+        {
+            name = name + "_reversed";
+            Sound r = Array.Find(sounds, sound => sound.name == name);
+
+            r.source.Pause();
+        }
+    }
+
+    public void Unpause(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+
+        s.source.UnPause();
     }
 
     public void Pitch(string name, float pitch)

@@ -197,7 +197,7 @@ public class Boss : MonoBehaviour
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
         gameObject.GetComponent<CircleCollider2D>().enabled = false;
         deathEffect.SetActive(true);
-        Invoke("Explosion", 5f);
+        Invoke("Explosion", 4f);
     }
 
     private void Explosion()
