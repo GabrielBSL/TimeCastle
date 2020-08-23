@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Ground
+  - TimeTrigger
+  - DestroyBox
+  - Spike
+  - Enemy
+  - Boss
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Ground
+  - Bounds
+  - Enemy
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background_1
+    uniqueID: 3188822783
+    locked: 0
+  - name: Background_2
+    uniqueID: 1558893825
+    locked: 0
+  - name: Stage
+    uniqueID: 4123142969
+    locked: 0
+  - name: Item
+    uniqueID: 2247468243
+    locked: 0
+  - name: Player
+    uniqueID: 4232650183
+    locked: 0
+  - name: TimeEffect
+    uniqueID: 2191375193
+    locked: 0

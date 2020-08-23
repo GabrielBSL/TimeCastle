@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Game/MainMenu.unity
+    guid: 45ffe5677c0279449871434374ce650f
+  - enabled: 1
+    path: Assets/Scenes/Game/Level_1.unity
+    guid: 694602e860869654599bd92378604ae8
+  - enabled: 1
+    path: Assets/Scenes/Game/Level_2.unity
+    guid: 41001ba092c65a14795d84ae0a96d661
+  - enabled: 1
+    path: Assets/Scenes/Game/Level_3.unity
+    guid: 19b8a67f539583241bafb1882677e9c0
+  - enabled: 1
+    path: Assets/Scenes/Game/Level_4.unity
+    guid: e349d53c4d8a45b45acc4e1cbbe49162
+  - enabled: 1
+    path: Assets/Scenes/Game/Intermission_1.unity
+    guid: 7a015692da0894f46aa96c13206eab95
+  - enabled: 1
+    path: Assets/Scenes/Game/Level_5.unity
+    guid: 86e0c84e6e7a1e34394a3ae0f46fc7c7
+  - enabled: 1
+    path: Assets/Scenes/Game/Level_6.unity
+    guid: 099fafe9fde7bac4d8d03e13f07b2a2d
+  - enabled: 1
+    path: Assets/Scenes/Game/Level_7.unity
+    guid: f09611d7c70dfce4f9cf17b109a7fed1
+  - enabled: 1
+    path: Assets/Scenes/Game/Level_8.unity
+    guid: 7bc9a92121f963840b1af7e1713feb96
+  - enabled: 1
+    path: Assets/Scenes/Game/Intermission_2.unity
+    guid: 4a77257026439e64e83864360582b4d3
+  - enabled: 1
+    path: Assets/Scenes/Game/Level_9.unity
+    guid: ccd7e9b8676cd80409bb6affdf5ac462
+  - enabled: 1
+    path: Assets/Scenes/Game/Level_10.unity
+    guid: 6bbe239d78633684eaab49f33ef0d22c
+  - enabled: 1
+    path: Assets/Scenes/Game/Level_11.unity
+    guid: 812d47bd0ebbf42479fa65a54ab22841
+  - enabled: 1
+    path: Assets/Scenes/Game/Level_12.unity
+    guid: 8d512271d5b0c3543a3c4c644a62b64e
+  - enabled: 1
+    path: Assets/Scenes/Game/Intermission_3.unity
+    guid: 23ae592d99836f641845d78dad8d6ad2
+  - enabled: 1
+    path: Assets/Scenes/Game/Level_boss.unity
+    guid: da1be956405b53d45bd9f7371377b5b3
+  m_configObjects: {}
