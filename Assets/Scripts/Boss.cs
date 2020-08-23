@@ -10,7 +10,7 @@ public class Boss : MonoBehaviour
     private Animator anim;
 
     private float difficultyFactor;
-    private int health;
+    public int health = 6;
 
     private bool right;
     private bool isMoving;
@@ -36,6 +36,9 @@ public class Boss : MonoBehaviour
     public float seekPlayerSaw;
     private int sawSpawned;
 
+    public GameObject deathEffect;
+    public GameObject explosionEffect;
+
     void Start()
     {
         player = GameObject.Find("Player");
@@ -54,8 +57,6 @@ public class Boss : MonoBehaviour
 
         seekPlayerSaw = 5;
         sawSpawned = 0;
-
-        health = 6;
     }
 
     // Update is called once per frame
@@ -158,7 +159,6 @@ public class Boss : MonoBehaviour
 
         FindObjectOfType<AudioManager>().PlaySound("BossHit");
         
-
         health--;
 
         if(health <= 2)
@@ -181,11 +181,36 @@ public class Boss : MonoBehaviour
 
     private void ExitStun()
     {
-        gotHit = false;
-        anim.SetBool("hit", false);
-
         if (health <= 0)
-            GameObject.Find("GameManager").GetComponent<GameManager>().NextLevel();
+            Defeated();
+        //GameObject.Find("GameManager").GetComponent<GameManager>().NextLevel();
+
+        else
+        {
+            gotHit = false;
+            anim.SetBool("hit", false);
+        }
+    }
+
+    private void Defeated()
+    {
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        gameObject.GetComponent<CircleCollider2D>().enabled = false;
+        deathEffect.SetActive(true);
+        Invoke("Explosion", 5f);
+    }
+
+    private void Explosion()
+    {
+        FindObjectOfType<AudioManager>().Stop("BossMusic");
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        explosionEffect.SetActive(true);
+        Invoke("Win", 5f);
+    }
+
+    private void Win()
+    {
+        FindObjectOfType<GameManager>().NextLevel();
     }
 
     public void ActivateBoss()

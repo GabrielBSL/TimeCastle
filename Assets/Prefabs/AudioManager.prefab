@@ -70,7 +70,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: BossMusic
     clip: {fileID: 8300000, guid: 90770506cbe244b4892aa112873c7233, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     loop: 1
     source: {fileID: 0}
@@ -100,7 +100,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: BossMusic_reversed
     clip: {fileID: 8300000, guid: 896f7e85cff37d249a52789079aa15b0, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     loop: 1
     source: {fileID: 0}
@@ -128,3 +128,10 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: CreditsMusic_reversed
+    clip: {fileID: 8300000, guid: 944a7ab4b5e0b094d96117d153618340, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  reverseBGM: 0

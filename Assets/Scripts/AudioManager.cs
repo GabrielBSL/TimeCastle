@@ -8,7 +8,8 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager instance;
 
-    private bool reverseBGM;
+    [HideInInspector]
+    public bool reverseBGM;
 
     private void Awake()
     {
