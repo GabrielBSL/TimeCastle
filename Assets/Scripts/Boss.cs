@@ -153,30 +153,35 @@ public class Boss : MonoBehaviour
 
     public void GetHit()
     {
-        gotHit = true;
-        anim.SetBool("hit", true);
-        seekSawSpawned = false;
-
-        FindObjectOfType<AudioManager>().PlaySound("BossHit");
-        
-        health--;
-
-        if(health <= 2)
+        if (!gotHit)
         {
-            GetComponent<SpriteRenderer>().color = new Color(1f, 0f, 0f, 1f);
-            difficultyFactor = 1.7f;
-        }
-        else if (health <= 4)
-        {
-            GetComponent<SpriteRenderer>().color = new Color(1f, 0.5f, 0.5f, 1f);
-            difficultyFactor = 1.2f;
-        }
+            gotHit = true;
+            anim.SetBool("hit", true);
+            seekSawSpawned = false;
 
-        secondsToMove *= difficultyFactor;
-        secondsToStop *= difficultyFactor;
-        seekPlayerSaw *= difficultyFactor;
+            FindObjectOfType<AudioManager>().PlaySound("BossHit");
 
-        Invoke("ExitStun", 2f);
+            health--;
+
+            if (health == 2)
+            {
+                GetComponent<SpriteRenderer>().color = new Color(1f, 0f, 0f, 1f);
+                difficultyFactor = 1.8f;
+                secondsToMove *= difficultyFactor;
+                secondsToStop *= difficultyFactor;
+                seekPlayerSaw *= difficultyFactor;
+            }
+            else if (health == 4)
+            {
+                GetComponent<SpriteRenderer>().color = new Color(1f, 0.5f, 0.5f, 1f);
+                difficultyFactor = 1.3f;
+                secondsToMove *= difficultyFactor;
+                secondsToStop *= difficultyFactor;
+                seekPlayerSaw *= difficultyFactor;
+            }
+
+            Invoke("ExitStun", 2f);
+        }
     }
 
     private void ExitStun()
