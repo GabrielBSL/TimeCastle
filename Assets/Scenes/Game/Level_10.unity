@@ -229,6 +229,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fan (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 6986625831569920422, guid: 2fef09f48095202408f667fcad6d262d,
+        type: 3}
+      propertyPath: m_ForceMagnitude
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 6986625831569920423, guid: 2fef09f48095202408f667fcad6d262d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -611,6 +616,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fan (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6986625831569920422, guid: 2fef09f48095202408f667fcad6d262d,
+        type: 3}
+      propertyPath: m_ForceMagnitude
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 6986625831569920423, guid: 2fef09f48095202408f667fcad6d262d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -714,6 +724,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fan (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6986625831569920422, guid: 2fef09f48095202408f667fcad6d262d,
+        type: 3}
+      propertyPath: m_ForceMagnitude
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 6986625831569920423, guid: 2fef09f48095202408f667fcad6d262d,
         type: 3}
@@ -10996,6 +11011,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fan (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6986625831569920422, guid: 2fef09f48095202408f667fcad6d262d,
+        type: 3}
+      propertyPath: m_ForceMagnitude
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 6986625831569920423, guid: 2fef09f48095202408f667fcad6d262d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13740,6 +13760,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fan (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6986625831569920422, guid: 2fef09f48095202408f667fcad6d262d,
+        type: 3}
+      propertyPath: m_ForceMagnitude
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 6986625831569920423, guid: 2fef09f48095202408f667fcad6d262d,
         type: 3}
@@ -24921,6 +24946,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fan (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6986625831569920422, guid: 2fef09f48095202408f667fcad6d262d,
+        type: 3}
+      propertyPath: m_ForceMagnitude
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 6986625831569920423, guid: 2fef09f48095202408f667fcad6d262d,
         type: 3}
