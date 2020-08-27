@@ -16,9 +16,7 @@ public class GroundCheck : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Ground")
-        {
-            player.GetComponent<PlayerMovement>().isGrounded();
-        }
+            player.GetComponent<PlayerMovement>().jumping = false;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -33,8 +31,6 @@ public class GroundCheck : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag == "Ground")
-        {
             player.GetComponent<PlayerMovement>().grounded = false;
-        }
     }
 }

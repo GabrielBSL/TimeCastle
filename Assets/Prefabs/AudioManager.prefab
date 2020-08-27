@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: MenuMusic
-    clip: {fileID: 8300000, guid: 10a153a980c722242990266d3843b998, type: 3}
+    clip: {fileID: 8300000, guid: 33f6c71960b53e0449a5cc5c7643195f, type: 3}
     volume: 1
     pitch: 1
     loop: 1
@@ -134,4 +134,11 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: PauseSound
+    clip: {fileID: 8300000, guid: 19f89c6e740e7447f9e12a8310d3e973, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   reverseBGM: 0
+  noMenuIntro: 0

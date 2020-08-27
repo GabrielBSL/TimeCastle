@@ -71,10 +71,9 @@ public class EnemyBehavior : MonoBehaviour
         {
             GameObject playerObject = collision.gameObject;
 
-            if (playerObject.transform.position.y >= gameObject.transform.position.y)
+            if (playerObject.transform.position.y >= gameObject.transform.position.y && gameObject.GetComponent<Rigidbody2D>().velocity.y < 0)
             {
                 playerObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * playerObject.GetComponent<PlayerMovement>().jumpForce, ForceMode2D.Impulse);
-                playerObject.GetComponent<PlayerMovement>().isBouncing();
                 gotHit = true;
 
                 FindObjectOfType<AudioManager>().PlaySound("EnemyHit");

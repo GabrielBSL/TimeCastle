@@ -8,6 +8,7 @@ public class ExitDoor : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
+            collision.gameObject.GetComponent<PlayerMovement>().StopScript();
             GameObject.Find("GameManager").GetComponent<GameManager>().NextLevel();
         }
     }

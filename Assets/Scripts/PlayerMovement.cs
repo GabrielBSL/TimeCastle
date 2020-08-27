@@ -22,13 +22,13 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rig;
     private Animator anim;
 
-    public float slopeRayLenght;
-
     public GameObject deathEffect;
 
     private bool wallColliding;
     private bool right;
-    private bool isAlive;
+
+    [HideInInspector]
+    public bool isAlive;
 
     // Start is called before the first frame update
     void Start()
@@ -83,20 +83,30 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rig.velocity = Vector3.ClampMagnitude(rig.velocity, jumpForce * 2f);
-
         if (rig.velocity.y < -0.1)
+        {
             anim.SetBool("fall", true);
-         
-        else
-            anim.SetBool("fall", false);
+            anim.SetBool("jump", false);
+            rig.velocity = Vector3.ClampMagnitude(rig.velocity, jumpForce * 2f);
+        }
 
+        else if (rig.velocity.y > 0.1)
+        {
+            anim.SetBool("jump", true);
+            anim.SetBool("fall", false);
+            rig.velocity = Vector3.ClampMagnitude(rig.velocity, jumpForce);
+        }
+
+        else
+        {
+            anim.SetBool("jump", false);
+            anim.SetBool("fall", false);
+        }
     }
 
     void Jump()
     {
         jumping = true;
-        anim.SetBool("jump", true);
         rig.velocity = new Vector2(0f, jumpForce);
     }
 
@@ -106,33 +116,26 @@ public class PlayerMovement : MonoBehaviour
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<BoxCollider2D>().enabled = false;
         GetComponent<CircleCollider2D>().enabled = false;
-        rig.gravityScale = 0f;
         rig.velocity = Vector3.zero;
+        rig.bodyType = RigidbodyType2D.Static;
 
         deathEffect.SetActive(true);
+
         FindObjectOfType<AudioManager>().PlaySound("PlayerHit");
-
         FindObjectOfType<AudioManager>().Pause(FindObjectOfType<GameManager>().songName);
-
         FindObjectOfType<Slider>().enabled = false;
 
-        Invoke("RestartLevel", 1.5f);
+        Invoke("RestartLevel", 0.5f);
+    }
+
+    public void StopScript()
+    {
+        anim.SetBool("walk", false);
+        gameObject.GetComponent<PlayerMovement>().enabled = false;
     }
 
     public void RestartLevel()
     {
-        FindObjectOfType<AudioManager>().Unpause(FindObjectOfType<GameManager>().songName);
-
         GameObject.Find("GameManager").GetComponent<GameManager>().RestartLevel();
-    }
-
-    public void isGrounded()
-    {
-        anim.SetBool("jump", false);
-    }
-
-    public void isBouncing()
-    {
-        anim.SetBool("jump", true);
     }
 }

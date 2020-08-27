@@ -66,3 +66,6 @@ TagManager:
   - name: TimeEffect
     uniqueID: 2191375193
     locked: 0
+  - name: Transition
+    uniqueID: 3280274953
+    locked: 0

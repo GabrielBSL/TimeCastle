@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,6 +17,12 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector]
     public string songName;
+
+    public GameObject pausePanelUI;
+    public GameObject inGameUI;
+    public GameObject levelLoader;
+
+    private bool isGamePaused = false;
 
     private void Start()
     {
@@ -61,6 +68,22 @@ public class GameManager : MonoBehaviour
             audio = FindObjectOfType<AudioManager>();
             audio.Play(songName);
         }
+
+        if (SceneManager.GetActiveScene().name != "MainMenu" &&
+            SceneManager.GetActiveScene().name != "Credits")
+        {
+
+            if (Input.GetKeyDown(KeyCode.Escape) && !isGamePaused && FindObjectOfType<PlayerMovement>().isAlive)
+            {
+                PauseGame();
+            }
+
+            else if (Input.GetKeyDown(KeyCode.Escape) && isGamePaused)
+            {
+                ResumeGame();
+            }
+
+        }
     }
 
     public void setTimeValue(float newVelocity)
@@ -83,8 +106,15 @@ public class GameManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Level_boss")
             audio.Stop(songName);
 
+        Invoke("WaitToUnpause", 1f);
+
+        levelLoader.GetComponent<LevelLoaderAnim>().StartTransition(currentLevelIndex);
+    }
+
+    public void WaitToUnpause()
+    {
         audio.Pitch(songName, 1f);
-        SceneManager.LoadScene(currentLevelIndex);
+        audio.Unpause(songName, 1f);
     }
 
     public void NextLevel()
@@ -95,19 +125,62 @@ public class GameManager : MonoBehaviour
             SceneManager.GetActiveScene().name == "Intermission_3" ||
             SceneManager.GetActiveScene().name == "Level_boss")
         {
-            audio.Stop(songName);
-            audio.reverseBGM = false;
+            Invoke("WaitToStop", 1f);
         }
 
         else
             audio.Pitch(songName, 1f);
 
-        SceneManager.LoadScene(currentLevelIndex + 1);
+        levelLoader.GetComponent<LevelLoaderAnim>().StartTransition(currentLevelIndex + 1);
+    }
+
+    public void WaitToStop()
+    {
+        audio.Pitch(songName, 1f);
+        audio.Reset(songName);
+        audio.Stop(songName);
+        audio.reverseBGM = false;
     }
 
     public void LoadMenu()
     {
+        audio.noMenuIntro = true;
+
+        audio.Pitch(songName, 1f);
+        audio.Reset(songName);
         audio.Stop(songName);
-        SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1f;
+
+        audio.SetTime("MenuMusic", 8f);
+
+        levelLoader.GetComponent<LevelLoaderAnim>().StartTransition(0);
+    }
+
+    public void PauseGame()
+    {
+        audio.PlaySound("PauseSound");
+
+        pausePanelUI.SetActive(true);
+        inGameUI.SetActive(false);
+        isGamePaused = true;
+        audio.Pause(songName);
+        Time.timeScale = 0f;
+    }
+
+    public void ResumeGame()
+    {
+        audio.PlaySound("PauseSound");
+
+        pausePanelUI.SetActive(false);
+        inGameUI.SetActive(true);
+
+        isGamePaused = false;
+        audio.Unpause(songName, timeVelocity);
+        Time.timeScale = 1f;
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

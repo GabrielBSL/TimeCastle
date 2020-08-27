@@ -55,7 +55,7 @@ public class BoxSpawner : MonoBehaviour
             {
                 transform.position = new Vector3(transform.position.x + velocity, transform.position.y, transform.position.z);
 
-                if (withPlayer && player != null)
+                if (withPlayer && player.GetComponent<PlayerMovement>().isAlive)
                     player.transform.position = new Vector3(player.transform.position.x + velocity, player.transform.position.y, player.transform.position.z);
             }
 
@@ -63,7 +63,7 @@ public class BoxSpawner : MonoBehaviour
             {
                 transform.position = new Vector3(transform.position.x, transform.position.y - velocity, transform.position.z);
 
-                if (withPlayer && player != null)
+                if (withPlayer && player.GetComponent<PlayerMovement>().isAlive)
                     player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y - velocity, player.transform.position.z);
             }
         }

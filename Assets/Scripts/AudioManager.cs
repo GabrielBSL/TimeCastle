@@ -10,6 +10,8 @@ public class AudioManager : MonoBehaviour
 
     [HideInInspector]
     public bool reverseBGM;
+    [HideInInspector]
+    public bool noMenuIntro = false;
 
     private void Awake()
     {
@@ -47,6 +49,16 @@ public class AudioManager : MonoBehaviour
             s.source.Play();
     }
 
+    public void Reset(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+
+        if (s == null)
+            return;
+
+        s.source.time = 0f;
+    }
+
     public void Stop(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
@@ -79,11 +91,18 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void Unpause(string name)
+    public void Unpause(string name, float pitch)
     {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-
-        s.source.UnPause();
+        if(pitch >= 0)
+        {
+            Sound t = Array.Find(sounds, sound => sound.name == name);
+            t.source.UnPause();
+        }
+        else
+        {
+            Sound r = Array.Find(sounds, sound => sound.name == name + "_reversed");
+            r.source.UnPause();
+        }
     }
 
     public void Pitch(string name, float pitch)
@@ -165,9 +184,16 @@ public class AudioManager : MonoBehaviour
         Sound s = Array.Find(sounds, sound => sound.name == name);
 
         if (!s.source.isPlaying)
-        {
-            s.source.Play();
-            s.source.pitch = 1f;
-        }
+            s.source.Play(); 
+    }
+
+    public void SetTime(string name, float time)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+
+        if (s == null)
+            return;
+
+        s.source.time = time;
     }
 }
