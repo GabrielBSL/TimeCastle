@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Boss : MonoBehaviour
 {
@@ -207,6 +208,7 @@ public class Boss : MonoBehaviour
 
     private void Explosion()
     {
+        FindObjectOfType<Slider>().enabled = false;
         FindObjectOfType<AudioManager>().Stop("BossMusic");
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
         explosionEffect.SetActive(true);

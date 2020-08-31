@@ -14,12 +14,12 @@ GameObject:
   - component: {fileID: 762531942}
   - component: {fileID: 762531941}
   m_Layer: 0
-  m_Name: Crossfade_standart
+  m_Name: Crossfade_game
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &762531940
 RectTransform:
   m_ObjectHideFlags: 0
@@ -112,7 +112,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 93df1f535642f8047a64be38de4663a9, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -387,7 +387,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 549c18201f1cb82438c9b565e161490f, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 

@@ -24,9 +24,13 @@ public class GameManager : MonoBehaviour
 
     private bool isGamePaused = false;
 
+    [HideInInspector]
+    public bool isInTransition;
+
     private void Start()
     {
         timeVelocity = 1f;
+        Time.timeScale = 1f;
 
         currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
 
@@ -73,7 +77,7 @@ public class GameManager : MonoBehaviour
             SceneManager.GetActiveScene().name != "Credits")
         {
 
-            if (Input.GetKeyDown(KeyCode.Escape) && !isGamePaused && FindObjectOfType<PlayerMovement>().isAlive)
+            if (Input.GetKeyDown(KeyCode.Escape) && !isGamePaused && FindObjectOfType<PlayerMovement>().isAlive && !isInTransition)
             {
                 PauseGame();
             }
@@ -104,7 +108,13 @@ public class GameManager : MonoBehaviour
     public void RestartLevel()
     {
         if (SceneManager.GetActiveScene().name == "Level_boss")
-            audio.Stop(songName);
+        {
+            if (timeVelocity >= 0)
+                audio.SetTime(songName, 0f);
+
+            else
+                audio.SetTime(songName + "_reversed", 0f);
+        }
 
         Invoke("WaitToUnpause", 1f);
 
@@ -117,6 +127,11 @@ public class GameManager : MonoBehaviour
         audio.Unpause(songName, 1f);
     }
 
+    public void WaitToPitch()
+    {
+        audio.Pitch(songName, 1f);
+    }
+
     public void NextLevel()
     {
         if (SceneManager.GetActiveScene().name == "MainMenu" ||
@@ -125,11 +140,11 @@ public class GameManager : MonoBehaviour
             SceneManager.GetActiveScene().name == "Intermission_3" ||
             SceneManager.GetActiveScene().name == "Level_boss")
         {
-            Invoke("WaitToStop", 1f);
+            Invoke("WaitToStop", 0.9f);
         }
 
         else
-            audio.Pitch(songName, 1f);
+            Invoke("WaitToPitch", 1f);
 
         levelLoader.GetComponent<LevelLoaderAnim>().StartTransition(currentLevelIndex + 1);
     }
@@ -149,7 +164,6 @@ public class GameManager : MonoBehaviour
         audio.Pitch(songName, 1f);
         audio.Reset(songName);
         audio.Stop(songName);
-        Time.timeScale = 1f;
 
         audio.SetTime("MenuMusic", 8f);
 

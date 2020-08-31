@@ -123,7 +123,9 @@ public class PlayerMovement : MonoBehaviour
 
         FindObjectOfType<AudioManager>().PlaySound("PlayerHit");
         FindObjectOfType<AudioManager>().Pause(FindObjectOfType<GameManager>().songName);
-        FindObjectOfType<Slider>().enabled = false;
+
+        if(!FindObjectOfType<GameManager>().isInTransition)
+            FindObjectOfType<Slider>().enabled = false;
 
         Invoke("RestartLevel", 0.5f);
     }
@@ -131,6 +133,7 @@ public class PlayerMovement : MonoBehaviour
     public void StopScript()
     {
         anim.SetBool("walk", false);
+        anim.SetBool("fall", false);
         gameObject.GetComponent<PlayerMovement>().enabled = false;
     }
 

@@ -116,7 +116,12 @@ public class AudioManager : MonoBehaviour
             Sound r = Array.Find(sounds, sound => sound.name == name);
 
             r.source.Play();
-            r.source.time = r.source.clip.length - s.source.time;
+
+            if (s.source.time == 0f)
+                r.source.time = 0f;
+
+            else
+                r.source.time = r.source.clip.length - s.source.time;
 
             s.source.Stop();
             r.source.pitch = pitch * -1f;
@@ -142,7 +147,12 @@ public class AudioManager : MonoBehaviour
             Sound r = Array.Find(sounds, sound => sound.name == name);
 
             s.source.Play();
-            s.source.time = s.source.clip.length - r.source.time;
+
+            if (r.source.time == 0f)
+                s.source.time = 0f;
+
+            else
+                s.source.time = s.source.clip.length - r.source.time;
 
             r.source.Stop();
             s.source.pitch = pitch;
@@ -151,7 +161,8 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        s.source.pitch = pitch;
+        else
+            s.source.pitch = pitch;
     }
 
     public bool MusicIsPlaying(string name)

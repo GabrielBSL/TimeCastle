@@ -19,10 +19,12 @@ public class EnemyBehavior : MonoBehaviour
     private Animator anim;
 
     private bool gotHit;
+    private bool colliding;
+    private bool antiClip = false;
 
     public GameObject deathParticleEffect;
 
-    private bool colliding;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -67,15 +69,16 @@ public class EnemyBehavior : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.collider.tag == "Player")
+        if(collision.collider.tag == "Player" && !antiClip)
         {
+            antiClip = true;
             GameObject playerObject = collision.gameObject;
 
-            if (playerObject.transform.position.y >= gameObject.transform.position.y && gameObject.GetComponent<Rigidbody2D>().velocity.y < 0)
+            if (playerObject.transform.position.y > gameObject.transform.position.y && playerObject.GetComponent<Rigidbody2D>().velocity.y < 0)
             {
-                playerObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * playerObject.GetComponent<PlayerMovement>().jumpForce, ForceMode2D.Impulse);
                 gotHit = true;
-
+                playerObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * playerObject.GetComponent<PlayerMovement>().jumpForce, ForceMode2D.Impulse);
+                
                 FindObjectOfType<AudioManager>().PlaySound("EnemyHit");
 
                 anim.SetBool("hit", true);

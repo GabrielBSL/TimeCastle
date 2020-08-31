@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -57,23 +58,64 @@ public class SpawnBehavior : MonoBehaviour
             else 
                 spawnPoint = gameObject.transform.Find("SpawnPoint2").gameObject.transform;
 
-            GameObject box = Instantiate(spawnBox, spawnPoint.position, Quaternion.identity);
+            GameObject nearestBlock = ClosestBlock(spawnPoint);
 
-            box.GetComponent<BoxSpawner>().speed = speed;
-            box.GetComponent<BoxSpawner>().isHorizontal = isHorizontal;
-            box.GetComponent<BoxSpawner>().isInverted = isInverted;
-            box.GetComponent<BoxSpawner>().affectedByTime = affectedByTime;
-            box.GetComponent<BoxSpawner>().isStationary = false;
+            if (nearestBlock == null || Vector3.Distance(nearestBlock.transform.position, spawnPoint.transform.position) > speed * spawnTime)
+            {
+                GameObject box = Instantiate(spawnBox, spawnPoint.position, Quaternion.identity);
+                box.transform.parent = gameObject.transform;
 
-            if (!affectedByTime)
-                box.GetComponent<BoxSpawner>().SetRedColor();
+                box.GetComponent<BoxSpawner>().speed = speed;
+                box.GetComponent<BoxSpawner>().isHorizontal = isHorizontal;
+                box.GetComponent<BoxSpawner>().isInverted = isInverted;
+                box.GetComponent<BoxSpawner>().affectedByTime = affectedByTime;
+                box.GetComponent<BoxSpawner>().isStationary = false;
 
-            if (timeToSpawn >= spawnTime && !negativeSpeed)
-                timeToSpawn = 0f;
+                if (!affectedByTime)
+                    box.GetComponent<BoxSpawner>().SetRedColor();
+
+                if (timeToSpawn >= spawnTime && !negativeSpeed)
+                    timeToSpawn = 0f;
+
+                else
+                    timeToSpawn = spawnTime;
+            }
 
             else
-                timeToSpawn = spawnTime;
-            
+            {
+                if (timeToSpawn > spawnTime)
+                    timeToSpawn = spawnTime;
+
+                else
+                    timeToSpawn = 0f;
+            }
         }
+    }
+
+    private GameObject ClosestBlock(Transform spawnPoint)
+    {
+        GameObject[] blocks;
+        blocks = GameObject.FindGameObjectsWithTag("Ground");
+
+        GameObject closest = null;
+        float distance = Mathf.Infinity;
+
+        Vector3 position = spawnPoint.position;
+
+        foreach (GameObject block in blocks)
+        {
+            if(block.transform.parent == gameObject.transform)
+            {
+                Vector3 diff = block.transform.position - position;
+                float curDistance = diff.sqrMagnitude;
+                if (curDistance < distance)
+                {
+                    closest = block;
+                    distance = curDistance;
+                }
+            }
+        }
+
+        return closest;
     }
 }

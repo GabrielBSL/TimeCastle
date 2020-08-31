@@ -8305,7 +8305,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 761123747}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071069, w: 0.70710677}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
@@ -8314,11 +8314,11 @@ RectTransform:
   - {fileID: 1813834979}
   m_Father: {fileID: 1241520071}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.00001}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 15, y: -100}
-  m_SizeDelta: {x: 160, y: 20}
+  m_AnchoredPosition: {x: 274, y: 109}
+  m_SizeDelta: {x: 126.03772, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &761123749
 MonoBehaviour:
@@ -8732,8 +8732,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1421323877}
   - {fileID: 1241520071}
+  - {fileID: 1421323877}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11402,7 +11402,7 @@ RectTransform:
   - {fileID: 1417454013}
   - {fileID: 1431719062}
   m_Father: {fileID: 917103976}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -11613,7 +11613,7 @@ RectTransform:
   - {fileID: 337711010}
   - {fileID: 2119635928}
   m_Father: {fileID: 917103976}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -11943,14 +11943,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 762531939, guid: b58e22cb365b8204f9598462e54fa112, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 762531939, guid: b58e22cb365b8204f9598462e54fa112, type: 3}
-      propertyPath: m_Name
-      value: Crossfade_game
-      objectReference: {fileID: 0}
     - target: {fileID: 6475378695306406752, guid: b58e22cb365b8204f9598462e54fa112,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12010,11 +12002,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LevelLoader
-      objectReference: {fileID: 0}
-    - target: {fileID: 6475378696773717810, guid: b58e22cb365b8204f9598462e54fa112,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b58e22cb365b8204f9598462e54fa112, type: 3}

@@ -68,7 +68,7 @@ public class FallingObject : MonoBehaviour
 
                 else if (gravityVelocity > player.GetComponent<PlayerMovement>().jumpForce * Time.deltaTime * 2f && withPlayer)
                 {
-                    player.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, player.GetComponent<PlayerMovement>().jumpForce * -2f);
+                    player.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, player.GetComponent<PlayerMovement>().jumpForce * -1.9f);
                     withPlayer = false;
                 }
 

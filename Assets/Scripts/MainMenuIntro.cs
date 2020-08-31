@@ -14,71 +14,81 @@ public class MainMenuIntro : MonoBehaviour
 
     [HideInInspector]
     public bool noIntro;
+    public bool credits;
 
     // Start is called before the first frame update
     void Start()
     {
         noIntro = FindObjectOfType<AudioManager>().noMenuIntro;
 
-        if (!noIntro)
-            introFadeIn.SetActive(true);
+        if (!credits)
+        {
+            if (!noIntro)
+                introFadeIn.SetActive(true);
 
-        else
-            normalFadeIn.SetActive(true);
+            else
+                normalFadeIn.SetActive(true);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!noIntro)
+        if (!credits)
         {
-            if (timeLimit > 0)
+            if (!noIntro)
             {
-                timeLimit -= Time.deltaTime;
+                if (timeLimit > 0)
+                {
+                    timeLimit -= Time.deltaTime;
 
-                transform.position = new Vector3(transform.position.x + (Time.deltaTime * velocity), transform.position.y, transform.position.z);
+                    transform.position = new Vector3(transform.position.x + (Time.deltaTime * velocity), transform.position.y, transform.position.z);
+                }
+                else
+                {
+                    if (!titlePanel.activeSelf)
+                    {
+                        titlePanel.SetActive(true);
+                        titlePanel.GetComponent<CanvasGroup>().alpha = 0f;
+                    }
+
+                    else if (titlePanel.activeSelf && titlePanel.GetComponent<CanvasGroup>().alpha < 1f)
+                    {
+                        titlePanel.GetComponent<CanvasGroup>().alpha += Time.deltaTime / 2f;
+                    }
+
+                    else if (!optionsPanel.activeSelf)
+                    {
+                        optionsPanel.SetActive(true);
+                        optionsPanel.GetComponent<CanvasGroup>().alpha = 0f;
+                    }
+
+                    else if (optionsPanel.activeSelf && optionsPanel.GetComponent<CanvasGroup>().alpha < 1f)
+                    {
+                        optionsPanel.GetComponent<CanvasGroup>().alpha += Time.deltaTime / 2f;
+                    }
+
+                    else
+                    {
+                        gameObject.GetComponent<MainMenuIntro>().enabled = false;
+                    }
+                }
             }
             else
             {
-                if (!titlePanel.activeSelf)
-                {
-                    titlePanel.SetActive(true);
-                    titlePanel.GetComponent<CanvasGroup>().alpha = 0f;
-                }
+                transform.position = new Vector3(transform.position.x + (timeLimit * velocity), transform.position.y, transform.position.z);
 
-                else if (titlePanel.activeSelf && titlePanel.GetComponent<CanvasGroup>().alpha < 1f)
-                {
-                    titlePanel.GetComponent<CanvasGroup>().alpha += Time.deltaTime / 2f;
-                }
+                titlePanel.SetActive(true);
+                titlePanel.GetComponent<CanvasGroup>().alpha = 1f;
 
-                else if (!optionsPanel.activeSelf)
-                {
-                    optionsPanel.SetActive(true);
-                    optionsPanel.GetComponent<CanvasGroup>().alpha = 0f;
-                }
+                optionsPanel.SetActive(true);
+                optionsPanel.GetComponent<CanvasGroup>().alpha = 1f;
 
-                else if (optionsPanel.activeSelf && optionsPanel.GetComponent<CanvasGroup>().alpha < 1f)
-                {
-                    optionsPanel.GetComponent<CanvasGroup>().alpha += Time.deltaTime / 2f;
-                }
-
-                else
-                {
-                    gameObject.GetComponent<MainMenuIntro>().enabled = false;
-                }
+                gameObject.GetComponent<MainMenuIntro>().enabled = false;
             }
         }
         else
-        {
-            transform.position = new Vector3(transform.position.x + (timeLimit * velocity), transform.position.y, transform.position.z);
-
-            titlePanel.SetActive(true);
-            titlePanel.GetComponent<CanvasGroup>().alpha = 1f;
-
-            optionsPanel.SetActive(true);
-            optionsPanel.GetComponent<CanvasGroup>().alpha = 1f;
-
-            gameObject.GetComponent<MainMenuIntro>().enabled = false;
-        }
+            transform.position = new Vector3(transform.position.x + (Time.deltaTime * velocity), transform.position.y, transform.position.z);
+        
     }
 }
