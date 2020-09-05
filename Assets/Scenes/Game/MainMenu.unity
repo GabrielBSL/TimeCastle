@@ -306,6 +306,7 @@ MonoBehaviour:
   introFadeIn: {fileID: 1456879731}
   normalFadeIn: {fileID: 140580288}
   noIntro: 0
+  credits: 0
 --- !u!1 &131368242
 GameObject:
   m_ObjectHideFlags: 0
@@ -667,7 +668,7 @@ Transform:
   m_GameObject: {fileID: 230558304}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 8.9, y: -3.2945948, z: 0}
-  m_LocalScale: {x: 0.5, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.2, z: 1}
   m_Children: []
   m_Father: {fileID: 620887734}
   m_RootOrder: 2
@@ -711,12 +712,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 5bf4bd5bb3dc85645bb94941acd5fa21, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 61fab3bb8aa3a2a47bc9a848587c78e8, type: 3}
   m_Color: {r: 0.31132078, g: 0.31132078, b: 0.31132078, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.74, y: 10.18}
+  m_Size: {x: 26.426025, y: 44.18}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

@@ -80,7 +80,8 @@ public class MainMenuIntro : MonoBehaviour
 
                 titlePanel.SetActive(true);
                 titlePanel.GetComponent<CanvasGroup>().alpha = 1f;
-
+                
+                
                 optionsPanel.SetActive(true);
                 optionsPanel.GetComponent<CanvasGroup>().alpha = 1f;
 

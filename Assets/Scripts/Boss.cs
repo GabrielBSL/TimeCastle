@@ -66,7 +66,10 @@ public class Boss : MonoBehaviour
         if (isActived && !gotHit && playerAlive)
         {
             if (player == null)
+            {
                 playerAlive = false;
+                return;
+            }
 
             CheckPlayerPosition();
 
@@ -113,10 +116,10 @@ public class Boss : MonoBehaviour
                 sawSpawned = 0;
                 seekSawSpawned = true;
 
-                newSaw.GetComponent<Saw>().speed = 3f;
+                newSaw.GetComponent<Saw>().speed = 2f * difficultyFactor;
                 newSaw.GetComponent<Saw>().targetPlayer = false;
                 newSaw.GetComponent<Saw>().SetPurpleColor();
-                newSaw.GetComponent<Saw>().SecondsToBeAffectedByTime(3);
+                newSaw.GetComponent<Saw>().SecondsToBeAffectedByTime(3f * difficultyFactor);
             }
 
             else

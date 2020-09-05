@@ -210,7 +210,7 @@ public class Saw : MonoBehaviour
         affectedByTime = false;
     }
 
-    public void SecondsToBeAffectedByTime(int seconds)
+    public void SecondsToBeAffectedByTime(float seconds)
     {
         Invoke("BeAffectedByTime", seconds);
     }

@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class ExitDoor : MonoBehaviour
 {
+    private bool antiClip = true;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if(collision.tag == "Player" && antiClip)
         {
+            antiClip = false;
             collision.gameObject.GetComponent<PlayerMovement>().StopScript();
             GameObject.Find("GameManager").GetComponent<GameManager>().NextLevel();
         }
