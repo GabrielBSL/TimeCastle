@@ -2231,7 +2231,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000015258789}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &410433742
@@ -9177,12 +9177,12 @@ PrefabInstance:
     - target: {fileID: 2068832631464343388, guid: 6032c7072d01a9a4c959cef82eb5d79b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 54.37
+      value: 29.46
       objectReference: {fileID: 0}
     - target: {fileID: 2068832631464343388, guid: 6032c7072d01a9a4c959cef82eb5d79b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.43
+      value: 1.93
       objectReference: {fileID: 0}
     - target: {fileID: 2068832631464343388, guid: 6032c7072d01a9a4c959cef82eb5d79b,
         type: 3}
@@ -12990,7 +12990,7 @@ PrefabInstance:
     - target: {fileID: 2068832631464343388, guid: 6032c7072d01a9a4c959cef82eb5d79b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 53.12
+      value: 54.37
       objectReference: {fileID: 0}
     - target: {fileID: 2068832631464343388, guid: 6032c7072d01a9a4c959cef82eb5d79b,
         type: 3}
@@ -13512,12 +13512,12 @@ PrefabInstance:
     - target: {fileID: 2068832631464343388, guid: 6032c7072d01a9a4c959cef82eb5d79b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 51.87
+      value: 54.37
       objectReference: {fileID: 0}
     - target: {fileID: 2068832631464343388, guid: 6032c7072d01a9a4c959cef82eb5d79b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.43
+      value: 4.43
       objectReference: {fileID: 0}
     - target: {fileID: 2068832631464343388, guid: 6032c7072d01a9a4c959cef82eb5d79b,
         type: 3}
@@ -14976,7 +14976,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1827039096}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.383598, y: 5.2395935, z: -10}
+  m_LocalPosition: {x: 13.391446, y: 5.2395935, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1458445653}

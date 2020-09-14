@@ -170,7 +170,7 @@ public class Boss : MonoBehaviour
             if (health == 2)
             {
                 GetComponent<SpriteRenderer>().color = new Color(1f, 0f, 0f, 1f);
-                difficultyFactor = 1.8f;
+                difficultyFactor = 1.5f;
                 secondsToMove *= difficultyFactor;
                 secondsToStop *= difficultyFactor;
                 seekPlayerSaw *= difficultyFactor;

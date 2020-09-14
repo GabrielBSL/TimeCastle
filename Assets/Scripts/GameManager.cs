@@ -240,9 +240,9 @@ public class GameManager : MonoBehaviour
     private void ShowFinalScore()
     {
         scoreText.text = PlayerPrefs.GetInt("Current_score").ToString() + "/175";
-        
 
-        timeText.text = Mathf.Floor(PlayerPrefs.GetFloat("Current_time") / 60).ToString("00");
+        timeText.text = "Time: ";
+        timeText.text += Mathf.Floor(PlayerPrefs.GetFloat("Current_time") / 60).ToString("00");
         timeText.text += ":" + Mathf.Floor(PlayerPrefs.GetFloat("Current_time") % 60).ToString("00");
         timeText.text += ":" + Mathf.Floor((PlayerPrefs.GetFloat("Current_time") * 1000) % 1000).ToString("000");
     }
